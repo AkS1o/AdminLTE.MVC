@@ -15,5 +15,6 @@ namespace AdminLTE.MVC.Data
         }
 
         public DbSet<Community> Communities { get; set; }
+        public DbSet<Worker> Workers { get; set; }
     }
 }
