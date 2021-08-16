@@ -1,8 +1,60 @@
-﻿@{ 
-    ViewData["Title"] = "Worker Create";
+﻿@model AdminLTE.MVC.Models.ViewModels.WorkerVM
+
+@{
+    ViewData["Title"] = "Worker Create Page";
     Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome Worker Create</h1>
 </div>
+
+<div class="card card-primary card-outline">
+    <form method="post" enctype="multipart/form-data" runat="server" asp-controller="Worker" asp-action="Create">
+        <div class="card-body">
+            <div class="form-group bg-light p-4">
+                <div class="d-flex align-items-center">
+                    <img id="image" class="img-fluid" src="~/img/avatar_default.png" width="90" />
+                    <div class="ml-3">
+                        <input id="upload" type="file" name="files">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worker.FirstName"></label>
+                <input class="form-control" asp-for="Worker.FirstName" type="text" />
+                <span class="text-danger" asp-validation-for="Worker.FirstName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worker.LastName"></label>
+                <input class="form-control" asp-for="Worker.LastName" type="text" />
+                <span class="text-danger" asp-validation-for="Worker.LastName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worker.Patronymic"></label>
+                <input class="form-control" asp-for="Worker.Patronymic" type="text" />
+                <span class="text-danger" asp-validation-for="Worker.Patronymic"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worker.CommunityId"></label>
+                <select class="form-control" asp-for="Worker.CommunityId" asp-items="@Model.CommunitiesSelectList"></select>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="col-4 offset-4">
+                <input type="submit" class="btn btn-primary w-100" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@{
+    <script>
+        upload.onchange = evt => {
+            const [file] = upload.files
+            if (file) {
+                image.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+}

@@ -1,8 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Worker Index";
+﻿@model IEnumerable<AdminLTE.MVC.Models.Worker>
+
+@{
+    ViewData["Title"] = "Worker Index Page";
     Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome Worker Index</h1>
 </div>
+
+@if (Model.Count() > 0)
+{
+    <div class="card">
+        <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Product Name</th>
+                        <th>LastName</th>
+                        <th>Patronymic</th>
+                        <th>Community</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td width="20%">@item.Id</td>
+                            <td width="20%">@item.FirstName</td>
+                            <td width="20%">@item.LastName</td>
+                            <td width="20%">@item.Patronymic</td>
+                            <td width="20%">@item.Community.Name</td>
+                            <td width="20%">@item.Image</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <p>No products found.</p>
+}

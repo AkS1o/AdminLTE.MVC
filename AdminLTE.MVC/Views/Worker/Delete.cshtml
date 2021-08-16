@@ -1,8 +1,71 @@
-﻿@{
-    ViewData["Title"] = "Worker Page";
+﻿@model AdminLTE.MVC.Models.ViewModels.WorkerSelectListVM
+
+@{
+    ViewData["Title"] = "Worker Delete Page";
     Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome Worker Delete</h1>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post" asp-controller="Worker" asp-action="Delete">
+            <div class="form-group row">
+                <div class="col-2">
+                    <label class="col-form-label" asp-for="WorkerId"></label>
+                </div>
+                <div class="col-7">
+                    <select class="form-control" asp-for="WorkerId" asp-items="@Model.WorkersSelectList"></select>
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary w-100" name="action" value="Select">Load</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (Model.Worker != null)
+{
+    <div class="card card-primary card-outline">
+        <form method="post" asp-controller="Worker" asp-action="Delete">
+            <input asp-for="Worker.Id"/>
+            <div class="card-body">
+                <div class="form-group bg-light p-4">
+                    <div class="d-flex align-items-center">
+                        <img class="img-circle elevation-2" src="@ENV.ImagePath@Model.Worker.Image" width="90" />
+                        <div class="ml-3">
+                            <input type="file" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Worker.FirstName"></label>
+                    <input class="form-control" disabled asp-for="Worker.FirstName" type="text" />
+                    <span class="text-danger" asp-validation-for="Worker.FirstName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Worker.LastName"></label>
+                    <input class="form-control" disabled asp-for="Worker.LastName" type="text" />
+                    <span class="text-danger" asp-validation-for="Worker.LastName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Worker.Patronymic"></label>
+                    <input class="form-control" disabled asp-for="Worker.Patronymic" type="text" />
+                    <span class="text-danger" asp-validation-for="Worker.Patronymic"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Worker.CommunityId"></label>
+                    <input class="form-control" disabled asp-for="Worker.Community.Name" />
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-primary w-100" name="action" value="Delete">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+}
