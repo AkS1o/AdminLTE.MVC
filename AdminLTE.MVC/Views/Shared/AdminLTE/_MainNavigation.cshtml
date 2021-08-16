@@ -1,4 +1,5 @@
 ﻿@using static AdminLTE.MVC.Helpers.NavigationIndicatorHelper;
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="~/Home" class="brand-link">
         <img src="~/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -10,7 +11,7 @@
         {
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="~/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="~/img/avatar_default.png" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">Hi, @User.Identity.Name </a>
@@ -33,49 +34,47 @@
                         <p>Home</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a id="manage" class="nav-link has-treeview" title="Worker">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Worker
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a asp-controller="Worker" asp-action="Index" class="nav-link @Url.MakeActiveClass("Worker", "Index")">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>Workers</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-controller="Worker" asp-action="Create" class="nav-link @Url.MakeActiveClass("Worker", "Create")">
-                                <i class="nav-icon fas fa-user-plus"></i>
-                                <p>Add Worker</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-controller="Worker" asp-action="Edit" class="nav-link @Url.MakeActiveClass("Worker", "Edit")">
-                                <i class="nav-icon fas fa-user-edit"></i>
-                                <p>Edit Worker</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-controller="Worker" asp-action="Delete" class="nav-link @Url.MakeActiveClass("Worker", "Delete")">
-                                <i class="nav-icon fas fa-user-plus"></i>
-                                <p>Remove Worker</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
+                    <li class="nav-item">
+                        <a id="manage" class="nav-link has-treeview" title="Worker">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Worker
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a asp-controller="Worker" asp-action="Index" class="nav-link @Url.MakeActiveClass("Worker", "Index")">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>Workers</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Worker" asp-action="Create" class="nav-link @Url.MakeActiveClass("Worker", "Create")">
+                                    <i class="nav-icon fas fa-user-plus"></i>
+                                    <p>Add Worker</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Worker" asp-action="Edit" class="nav-link @Url.MakeActiveClass("Worker", "Edit")">
+                                    <i class="nav-icon fas fa-user-edit"></i>
+                                    <p>Edit Worker</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Worker" asp-action="Delete" class="nav-link @Url.MakeActiveClass("Worker", "Delete")">
+                                    <i class="nav-icon fas fa-user-plus"></i>
+                                    <p>Remove Worker</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item ">
                         <a asp-controller="Home" asp-action="Privacy" class="nav-link @Url.MakeActiveClass("Home","Privacy")">
                             <i class="nav-icon fas fa-lock"></i>
-                            <p>
-                                Privacy
-                            </p>
+                            <p>Privacy</p>
                         </a>
                     </li>
                 }
