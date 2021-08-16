@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AdminLTE.Migrations
+namespace AdminLTE.MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210729153459_CreateWorker")]

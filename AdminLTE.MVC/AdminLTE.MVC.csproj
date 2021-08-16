@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-AdminLTE</UserSecretsId>
-    <AssemblyName>AdminLTE</AssemblyName>
-    <RootNamespace>AdminLTE</RootNamespace>
+    <AssemblyName>AdminLTE.MVC</AssemblyName>
+    <RootNamespace>AdminLTE.MVC</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

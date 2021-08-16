@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace AdminLTE.Migrations
+namespace AdminLTE.MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -16,10 +16,10 @@ namespace AdminLTE.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.8")
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AdminLTE.Models.Community", b =>
+            modelBuilder.Entity("AdminLTE.MVC.Models.Community", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,9 +41,32 @@ namespace AdminLTE.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Communities");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 4,
+                            CommunityType = "Type1",
+                            Name = "Name1",
+                            Region = "Region1"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CommunityType = "Type2",
+                            Name = "Name2",
+                            Region = "Region2"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CommunityType = "Type3",
+                            Name = "Name3",
+                            Region = "Region3"
+                        });
                 });
 
-            modelBuilder.Entity("AdminLTE.Models.Worker", b =>
+            modelBuilder.Entity("AdminLTE.MVC.Models.Worker", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -204,15 +227,15 @@ namespace AdminLTE.Migrations
                         {
                             Id = "d7b98713-435b-42f1-917f-45f226586b92",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1dacb4ed-5584-4bef-b7a6-09bedf0c40b7",
+                            ConcurrencyStamp = "fee9511c-0dcd-44ab-88ae-ee509e426b85",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGg7BC6ydMiRbCkltznK7oQjJ/6UCUu3qiN45g9jRM1EYmpsWbBWYdpfgGvA5NFCqQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPekb3poT7xhdnMxnr84sHoQheugSCw/XOnjxX1XvCFo949FWdZS8IyX7kB5IvFS2g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9ccc7b9e-9614-4607-bef0-1e8b3731bd8e",
+                            SecurityStamp = "36088feb-f31f-4d1c-a1b0-6090ce821587",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -245,12 +268,10 @@ namespace AdminLTE.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -294,12 +315,10 @@ namespace AdminLTE.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -309,9 +328,9 @@ namespace AdminLTE.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AdminLTE.Models.Worker", b =>
+            modelBuilder.Entity("AdminLTE.MVC.Models.Worker", b =>
                 {
-                    b.HasOne("AdminLTE.Models.Community", "Community")
+                    b.HasOne("AdminLTE.MVC.Models.Community", "Community")
                         .WithMany()
                         .HasForeignKey("CommunityId")
                         .OnDelete(DeleteBehavior.Cascade)

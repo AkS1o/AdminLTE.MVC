@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AdminLTE.Migrations
+namespace AdminLTE.MVC.Migrations
 {
     public partial class DataSeeding : Migration
     {
